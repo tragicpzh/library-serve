@@ -7,6 +7,10 @@ import { EchartsModule } from './echarts/echarts.module';
 import { BookTypeAnalyzeController } from './book-type-analyze/book-type-analyze.controller';
 import { BookTypeAnalyzeModule } from './book-type-analyze/book-type-analyze.module';
 import { LogModule } from './log/log.module';
+import { BooksModule } from './books/books.module';
+import { RoomModule } from './room/room.module';
+import { RecommendModule } from './recommend/recommend.module';
+import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
@@ -17,6 +21,10 @@ import { LogModule } from './log/log.module';
     EchartsModule,
     BookTypeAnalyzeModule,
     LogModule,
+    BooksModule,
+    RoomModule,
+    RecommendModule,
+    TodoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
