@@ -11,6 +11,7 @@ import { BooksModule } from './books/books.module';
 import { RoomModule } from './room/room.module';
 import { RecommendModule } from './recommend/recommend.module';
 import { TodoModule } from './todo/todo.module';
+import { FileModule } from './file/file.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { TodoModule } from './todo/todo.module';
     RoomModule,
     RecommendModule,
     TodoModule,
+    FileModule,
   ],
   controllers: [AppController],
   providers: [AppService],

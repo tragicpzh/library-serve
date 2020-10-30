@@ -34,6 +34,7 @@
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
     "fastify-swagger": "^3.3.0",
+    "fs-extra": "^9.0.1",
     "moment": "^2.27.0",
     "mongoose": "^5.10.2",
     "nestjs-typegoose": "^7.1.34",
