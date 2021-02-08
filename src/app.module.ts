@@ -12,6 +12,7 @@ import { RoomModule } from './room/room.module';
 import { RecommendModule } from './recommend/recommend.module';
 import { TodoModule } from './todo/todo.module';
 import { FileModule } from './file/file.module';
+import { ChatGateway } from './chat.gateway';
 
 @Module({
   imports: [
@@ -29,6 +30,6 @@ import { FileModule } from './file/file.module';
     FileModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, ChatGateway],
 })
 export class AppModule {}

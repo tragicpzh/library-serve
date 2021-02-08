@@ -6,7 +6,7 @@ export class LogController {
   @Post()
   getLogs(@Req() req) {
     req.on('data', reqs => {
-      // console.log(eval('(' + reqs.toString() + ')'));
+      console.log(JSON.parse(reqs.toString()));
     });
     return {
       success: true,

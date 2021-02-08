@@ -4,11 +4,14 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { join } from 'path';
 import * as serveStatic from 'serve-static';
-declare const module: any;
+import { WsAdapter } from '@nestjs/platform-ws';
+const cors = require('cors');
 
+declare const module: any;
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.useWebSocketAdapter(new WsAdapter(app));
+  app.use(cors());
   app.useGlobalPipes(new ValidationPipe());
   const options = new DocumentBuilder()
     .setTitle('library-api')

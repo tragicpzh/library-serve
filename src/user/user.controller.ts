@@ -51,6 +51,15 @@ class userInfoDto {
   id: string;
 }
 
+class booksDto {
+  @ApiPropertyOptional()
+  @IsNotEmpty()
+  pageNo: number;
+  @ApiPropertyOptional()
+  @IsNotEmpty()
+  pageSize: number;
+}
+
 @Controller('user')
 export class UserController {
   constructor(@InjectModel(User) private readonly UserModel: ModelType<User>) {}
@@ -99,6 +108,21 @@ export class UserController {
       };
     }
   }
+
+  @Post('/getBooks')
+  async getBooks(@Body() books: booksDto) {
+    const { pageNo, pageSize } = books;
+    const data = new Array(pageSize);
+    data.fill(1);
+    return {
+      httpCode: 200,
+      data: data.map((_, index) => ({
+        name: `测试${pageNo * pageSize + index + 1}`,
+        code: `test${pageNo * pageSize + index + 1}`,
+      })),
+    };
+  }
+
   @Put('updateUserInfo')
   async updateUserInfo(@Body() userInfo: userInfoDto) {
     const data = await this.UserModel.findByIdAndUpdate(userInfo.id, {
